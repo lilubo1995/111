@@ -1,0 +1,40 @@
+#include<iostream>
+using namespace std;
+/*typedef struct BiTNode {
+	int data;
+	struct BiTNode*lchild, *rchild;
+}BiTNode, *BiTree;*/
+//二叉链表示法
+struct BiTNode {
+	int data;
+	struct BiTNode*lchild, *rchild;
+};
+typedef struct BiTNode  BiTNode;
+typedef struct BiTNode*  BiTree;
+//三叉链表表示法
+struct BiTNode {
+	int data;
+	struct BiTNode*lchild, *rchild;
+	struct BiTNode*parent;
+}BiTNode, *BiTree;
+int main01() {
+	BiTNode *p1, *p2, *p3, *p4, *p5;
+	p1 = (BiTNode*)malloc(sizeof(BiTNode));
+	p2 = (BiTNode*)malloc(sizeof(BiTNode));
+	p3 = (BiTNode*)malloc(sizeof(BiTNode));
+	p4 = (BiTNode*)malloc(sizeof(BiTNode));
+	p5 = (BiTNode*)malloc(sizeof(BiTNode));
+	p1->data = 1;
+	p2->data = 2;
+	p3->data = 3;
+	p4->data = 4;
+	p5->data = 5;
+	//建立关系
+	p1->lchild = p2;
+	p2->rchild = p3;
+	p2->lchild = p4;
+	p3->lchild = p5;
+
+	system("pause");
+	return 0;
+}
