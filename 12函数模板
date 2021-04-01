@@ -1,0 +1,60 @@
+#include<iostream>
+using namespace std;
+//函数的逻辑一样，但是函数的参数类型不一样，
+void myswap(int&a, int&b) {
+	int c = 0;
+	c = a;
+	a = b;
+	b = c;
+}
+void myswap1(char&a, char&b) {
+	int c = 0;
+	c = a;
+	a = b;
+	b = c;
+}
+int main() {
+	int x = 10;
+	int y = 20;
+	myswap(x, y);
+	printf("x:%d y:%d \n", x, y);
+	char a = 'a';
+	char b = 'b';
+	printf("a:%d b:%d \n", a, b);
+
+	system("pause");
+	return 0;
+}
+
+
+
+//让函数的类型参数化,泛型编程
+template<typename T>
+void myswap(T&a, T&b)
+{
+	T c;
+	c = a;
+	a = b;
+	b = c;
+}
+void main() {
+	//显示类型 调用
+	int x = 10;
+	int y = 20;
+	myswap<int>(x, y);
+	printf("x:%d y:%d \n", x, y);
+	char a = 'a';
+	char b = 'b';
+	myswap<char>(a, b);
+	printf("a:%d b:%d \n", a, b);
+
+	system("pause");
+	return;
+}
+
+
+
+
+
+
+
