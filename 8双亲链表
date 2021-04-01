@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+/*typedef struct BiTNode {
+	int data;
+	struct BiTNode*lchild, *rchild;
+}BiTNode, *BiTree;*/
+
+//双亲链表表示法
+
+typedef struct BPTNode {
+	int data;
+	int parentPosition;//指向双亲的指针
+	char LRTag;//左右孩子标志域
+}BiTNode;
+typedef struct BPTree {
+	BPTNode nodes[100];
+	int num_node;//节点数目
+	int root;//根节点
+}BPTree;
+
+int main() {
+	BPTree tree;
+	//根节点
+	tree.nodes[0].parentPosition = 1000;
+	//b
+	tree.nodes[1].parentPosition = 0;
+	tree.nodes[1].data = 'B';
+	tree.nodes[1].LRTag = 1;
+	//c
+	tree.nodes[1].parentPosition = 0;
+	tree.nodes[1].data = 'C';
+	tree.nodes[1].LRTag = 1;
+	system("pause");
+	return 0;
+}
