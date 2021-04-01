@@ -1,0 +1,63 @@
+#include<iostream>
+using namespace std;
+/*typedef struct BiTNode {
+	int data;
+	struct BiTNode*lchild, *rchild;
+}BiTNode, *BiTree;*/
+//二叉链表示法
+struct BiTNode {
+	int data;
+	struct BiTNode*lchild, *rchild;
+};
+typedef struct BiTNode  BiTNode;
+typedef struct BiTNode*  BiTree;
+//先序遍历
+void preorder(BiTNode*root) {
+	if (root == NULL) {
+		return;
+	}
+	printf("%d", root->data);//遍历根节点
+	preorder(root->lchild);//遍历左子树
+	preorder(root->rchild);//遍历右子树
+}
+void inorder(BiTNode*root) {
+	if (root == NULL) {
+		return;
+	}
+	preorder(root->lchild);//遍历左子树
+	printf("%d", root->data);//遍历根节点
+	preorder(root->rchild);//遍历右子树
+}
+void postorder(BiTNode*root) {
+	if (root == NULL) {
+		return;
+	}
+	preorder(root->lchild);//遍历左子树
+	preorder(root->rchild);//遍历右子树
+	printf("%d", root->data);//遍历根节点
+}
+int main() {
+	BiTNode t1, t2, t3, t4, t5;
+	memset(&t1, 0, sizeof(BiTNode));
+	memset(&t2, 0, sizeof(BiTNode));
+	memset(&t3, 0, sizeof(BiTNode));
+	memset(&t4, 0, sizeof(BiTNode));
+	memset(&t5, 0, sizeof(BiTNode));
+
+	t1.data = 1;
+	t2.data = 2;
+	t3.data = 3;
+	t4.data = 4;
+	t5.data = 5;
+	//建立关系
+	t1.lchild = &t2;
+	t1.rchild = &t3;
+	t2.lchild = &t4;
+	t3.lchild = &t5;
+	//树的遍历
+	preorder(&t1);
+	inorder(&t1);
+	postorder(&t1);
+	system("pause");
+	return 0;
+}
